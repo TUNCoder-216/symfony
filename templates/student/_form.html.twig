@@ -1,0 +1,25 @@
+
+<div class="container">
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+    <div class="form-group">
+    {{form_label(form.name,'votre nom')}}
+    {{ form_widget(form.name,{'attr':{'class':'form-control'}}) }}
+    <div class="alert alert-danger">
+    {{ form_errors(form.name) }}
+</div>
+</div>
+    <br>
+    <div class="form-group">
+    {{form_label(form.moyenne,'Votre moyenne')}}
+    {{ form_widget(form.moyenne,{'attr':{'class':'form-control'}}) }}
+    {{ form_errors(form.moyenne) }}
+</div>
+<br>
+<div class="form-group">
+{{form_label(form.idclass,'Votre classromm')}}
+{{ form_widget(form.idclass,{'attr':{'class':'form-control'}}) }}
+{{ form_errors(form.idclass) }}
+</div>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+</div>
