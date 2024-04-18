@@ -15,6 +15,21 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
+
+    #[Route('/back', name: 'app_admin')]
+    public function indexadmin(): Response
+    {
+        return $this->render('user/indexadmin.html.twig', [
+            'controller_name' => 'UserController',
+        ]);
+    }
+    #[Route('/cours', name: 'app_coours')]
+    public function indexadmin1(): Response
+    {
+        return $this->render('<templates>Cours.html.twig', [
+            'controller_name' => 'CoursController',
+        ]);
+    }
 }
 
 

@@ -1,3 +1,10 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+cours_route:
+    path: /courses
+    controller: App\Controller\CoursController::index
+bibliotheque_route:
+    path: /bibliotheque
+    controller: App\Controller\BibliothequeController::index
