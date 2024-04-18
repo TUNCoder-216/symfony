@@ -1,498 +1,492 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="">
-        <meta name="author" content="">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}EDU hub{% endblock %}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-        <title>Medic Care Bootstrap 5 CSS Template</title>
-        {% block stylesheets %}
-        <!--{{ encore_entry_link_tags('app') }}-->
-   
-        <!-- CSS FILES -->        
-        <link rel="preconnect" href="{{asset('https://fonts.googleapis.com')}}">
-        
-        <link rel="preconnect" href="{{asset('https://fonts.gstatic.com')}}" crossorigin>
-        
-        <link href="{{asset('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap')}}" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="{{ asset('img/favicon.ico') }}" rel="icon">
 
-        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="{{ asset('https://fonts.googleapis.com')}}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
-        <link href="{{asset('css/bootstrap-icons.css')}}" rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        <link href="{{asset('css/owl.carousel.min.css')}}" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
-        <link href="{{asset('css/owl.theme.default.min.css')}}" rel="stylesheet">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
-        <link href="{{asset('css/templatemo-medic-care.css')}}" rel="stylesheet">
-<!--
+    <!-- Template Stylesheet -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+ 
+  
+    <link rel="stylesheet" href="{{ asset('css/style1.css') }}">
 
-TemplateMo 566 Medic Care
+</head>
 
-https://templatemo.com/tm-566-medic-care
 
--->
+
+<body>
+ 
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+   <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="{{ asset('index.html') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Eduhub connect</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                 <a href="{{path('app_test',{page_path:'index.html.twig'})}}" class="nav-item nav-link">Home</a>
+                 <a href="{{path('app_test',{page_path:'about.html.twig'})}}" class="nav-item nav-link">About</a>
+                <a href="{{ asset('courses.html') }}" class="nav-item nav-link">Courses</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="{{ asset('team.html') }}" class="dropdown-item">Our Team</a>
+                        <a href="{{ asset('testimonial.html') }}" class="dropdown-item">Testimonial</a>
+                        <a href="{{ asset('404.html') }}" class="dropdown-item">404 Page</a>
+                        <a href="{{ asset('') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                        <a href="{{path('app_test',{page_path:'newacc.html.twig'})}}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                    </div>
+                </div>
+                <a href="{{path('app_test',{page_path:'login.html.twig'})}} }}" class="nav-item nav-link">log in</a>
+            </div>
+            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+{% block content %}{% endblock %}
+       {% block carousel %}
+
+    <!-- Carousel Start -->
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <div class="owl-carousel header-carousel position-relative">
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="{{ asset('img/carousel-1.jpg') }}" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5>
+                            <h1 class="display-3 text-white animated slideInDown">The Best Online Learning Platform</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p>
+                            <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                            <a href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="{{ asset('img/carousel-2.jpg') }}" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5>
+                            <h1 class="display-3 text-white animated slideInDown">Get Educated Online From Your Home</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p>
+                            <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                            <a href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
-    </head>
-    
-    
-    <body id="top">
-    
-        <main>
+    <!-- Carousel End -->
 
-            <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
-                <div class="container">
-                    <a class="navbar-brand mx-auto d-lg-none" href="index.html">
-                        Medic Care
-                        <strong class="d-block">Health Specialist</strong>
-                    </a>
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
 
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav mx-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#hero">Home</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#about">About</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#timeline">Timeline</a>
-                            </li>
-
-                            <a class="navbar-brand d-none d-lg-block" href="index.html">
-                                Medic Care
-                                <strong class="d-block">Health Specialist</strong>
-                            </a>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#reviews">Testimonials</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#booking">Booking</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </nav>
-
-            <section class="hero" id="hero">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-12">
-                            <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="{{asset('images/slider/portrait-successful-mid-adult-doctor-with-crossed-arms.jpg')}}" class="img-fluid" alt="">
-                                    </div>
-
-                                    <div class="carousel-item">
-                                        <img src="{{asset('images/slider/young-asian-female-dentist-white-coat-posing-clinic-equipment.jpg')}}" class="img-fluid" alt="">
-                                    </div>
-
-                                    <div class="carousel-item">
-                                        <img src="{{asset('images/slider/doctor-s-hand-holding-stethoscope-closeup.jpg')}}" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="heroText d-flex flex-column justify-content-center">
-
-                                <h1 class="mt-auto mb-2">
-                                    Better
-                                    <div class="animated-info">
-                                        <span class="animated-item">health</span>
-                                        <span class="animated-item">days</span>
-                                        <span class="animated-item">lives</span>
-                                    </div>
-                                </h1>
-
-                                <p class="mb-4">Medic Care is a Bootstrap 5 Template provided by TemplateMo website. Credits go to FreePik and RawPixel for images used in this template.</p>
-
-                                <div class="heroLinks d-flex flex-wrap align-items-center">
-                                    <a class="custom-link me-4" href="#about" data-hover="Learn More">Learn More</a>
-
-                                    <p class="contact-phone mb-0"><i class="bi-phone"></i> 010-020-0340</p>
-                                </div>
-                            </div>
-                        </div>
-
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item text-center pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                        <h5 class="mb-3">Skilled Instructors</h5>
+                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
                     </div>
                 </div>
-            </section>
-
-            <section class="section-padding" id="about">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <h2 class="mb-lg-3 mb-3">Meet Dr. Carson</h2>
-
-                            <p>Protect yourself and others by wearing masks and washing hands frequently. Outdoor is safer than indoor for gatherings or holding events. People who get sick with Coronavirus disease (COVID-19) will experience mild to moderate symptoms and recover without special treatments.</p>
-
-                            <p>You can feel free to use this CSS template for your medical profession or health care related websites. You can <a rel="nofollow" href="http://paypal.me/templatemo" target="_blank">support us a little</a> via PayPal if this template is good and useful for your work.</p>
-                        </div>
-
-                        <div class="col-lg-4 col-md-5 col-12 mx-auto">
-                            <div class="featured-circle bg-white shadow-lg d-flex justify-content-center align-items-center">
-                                <p class="featured-text"><span class="featured-number">12</span> Years<br> of Experiences</p>
-                            </div>
-                        </div>
-
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item text-center pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                        <h5 class="mb-3">Online Classes</h5>
+                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
                     </div>
                 </div>
-            </section>
-
-            <section class="gallery">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-6 col-6 ps-0">
-                            <img src="{{asset('images/gallery/medium-shot-man-getting-vaccine.jpg')}}" class="img-fluid galleryImage" alt="get a vaccine" title="get a vaccine for yourself">
-                        </div>
-
-                        <div class="col-lg-6 col-6 pe-0">
-                            <img src="{{asset('images/gallery/female-doctor-with-presenting-hand-gesture.jpg')}}" class="img-fluid galleryImage" alt="wear a mask" title="wear a mask to protect yourself">
-                        </div>
-
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item text-center pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                        <h5 class="mb-3">Home Projects</h5>
+                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
                     </div>
                 </div>
-            </section>
-
-            <section class="section-padding pb-0" id="timeline">
-                <div class="container">
-                    <div class="row">
-
-                        <h2 class="text-center mb-lg-5 mb-4">Our Timeline</h2>
-                        
-                        <div class="timeline">
-                            <div class="row g-0 justify-content-end justify-content-md-around align-items-start timeline-nodes">
-                                <div class="col-9 col-md-5 me-md-4 me-lg-0 order-3 order-md-1 timeline-content bg-white shadow-lg">
-                                    <h3 class=" text-light">Get the vaccine</h3>
-
-                                    <p>Donec facilisis urna dui, a dignissim mauris pretium a. Quisque quis libero fermentum, tempus felis eu, consequat nibh.</p>
-                                </div>
-
-                                <div class="col-3 col-sm-1 order-2 timeline-icons text-md-center">
-                                    <i class="bi-patch-check-fill timeline-icon"></i>
-                                </div>
-
-                                <div class="col-9 col-md-5 ps-md-3 ps-lg-0 order-1 order-md-3 py-4 timeline-date">
-                                    <time>2021-07-31 Saturday</time>
-                                </div>
-                            </div>
-
-                            <div class="row g-0 justify-content-end justify-content-md-around align-items-start timeline-nodes my-lg-5 my-4">
-                                <div class="col-9 col-md-5 ms-md-4 ms-lg-0 order-3 order-md-1 timeline-content bg-white shadow-lg">
-                                    <h3 class=" text-light">Consulting your health</h3>
-
-                                    <p>You are fully permitted to use this template for your commercial or personal website. You are not permitted to redistribute the template ZIP file for a download purpose on any other <a href="https://www.google.com/search?q=free+css" target="_blank">Free CSS collection</a> website.</p>
-                                </div>
-
-                                <div class="col-3 col-sm-1 order-2 timeline-icons text-md-center">
-                                    <i class="bi-book timeline-icon"></i>
-                                </div>
-
-                                <div class="col-9 col-md-5 pe-md-3 pe-lg-0 order-1 order-md-3 py-4 timeline-date">
-                                    <time>2021-07-15 Thursday</time>
-                                </div>
-                            </div>
-
-                            <div class="row g-0 justify-content-end justify-content-md-around align-items-start timeline-nodes">
-                                <div class="col-9 col-md-5 me-md-4 me-lg-0 order-3 order-md-1 timeline-content bg-white shadow-lg">
-                                    <h3 class=" text-light">Certified Nurses</h3>
-
-                                    <p>Phasellus eleifend, urna interdum congue viverra, arcu neque ultrices ligula, id pulvinar nisi nibh et lacus. Vivamus gravida, ipsum non euismod tincidunt, sapien elit fermentum mi, quis iaculis enim ligula at arcu.</p>
-                                </div>
-
-                                <div class="col-3 col-sm-1 order-2 timeline-icons text-md-center">
-                                    <i class="bi-file-medical timeline-icon"></i>
-                                </div>
-
-                                <div class="col-9 col-md-5 ps-md-3 ps-lg-0 order-1 order-md-3 py-4 timeline-date">
-                                    <time>2021-06-28 Monday</time>
-                                </div>
-                            </div>
-
-                            <div class="row g-0 justify-content-end justify-content-md-around align-items-start timeline-nodes my-lg-5 my-4">
-                                <div class="col-9 col-md-5 ms-md-4 ms-lg-0 order-3 order-md-1 timeline-content bg-white shadow-lg">
-                                    <h3 class=" text-light">Covid-19 Hospitals</h3>
-
-                                    <p class="mb-0 pb-0">Fusce vestibulum euismod nulla sed ultrices. Praesent rutrum nulla vel sapien euismod, quis tempus dui placerat.</p>
-                                    
-                                    <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla</p>
-                                </div>
-
-                                <div class="col-3 col-sm-1 order-2 timeline-icons text-md-center">
-                                    <i class="bi-globe timeline-icon"></i>
-                                </div>
-
-                                <div class="col-9 col-md-5 pe-md-3 pe-lg-0 order-1 order-md-3 py-4 timeline-date">
-                                    <time>2021-05-30 Sunday</time>
-                                </div>
-                            </div>
-
-                            <div class="row g-0 justify-content-end justify-content-md-around align-items-start timeline-nodes">
-                                <div class="col-9 col-md-5 me-md-4 me-lg-0 order-3 order-md-1 timeline-content bg-white shadow-lg">
-                                    <h3 class=" text-light">Freelance Nursing</h3>
-
-                                    <p>If you need a working contact form that submits email to your inbox, please <a rel="nofollow" href="https://templatemo.com/contact" target="_parent">visit our contact page</a> for more information.</p>
-                                </div>
-
-                                <div class="col-3 col-sm-1 order-2 timeline-icons text-md-center">
-                                    <i class="bi-person timeline-icon"></i>
-                                </div>
-
-                                <div class="col-9 col-md-5 ps-md-3 ps-lg-0 order-1 order-md-3 py-4 timeline-date">
-                                    <time>2021-05-18 Tuesday</time>
-                                </div>
-                            </div>
-                        </div>
-
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item text-center pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                        <h5 class="mb-3">Book Library</h5>
+                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </div>
+</div>
 
-            <section class="section-padding pb-0" id="reviews">
-                <div class="container">
-                    <div class="row">
+    <!-- Service End -->
 
-                        <div class="col-12">
-                            <h2 class="text-center mb-lg-5 mb-4">Our Patients</h2>
 
-                            <div class="owl-carousel reviews-carousel">
-
-                                <figure class="reviews-thumb d-flex flex-wrap align-items-center rounded">
-                                    <div class="reviews-stars">
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star"></i>
-                                    </div>
-
-                                    <p class="text-primary d-block mt-2 mb-0 w-100"><strong>Best Health Care</strong></p>
-
-                                    <p class="reviews-text w-100">Phasellus ligula ante, tempus ac imperdiet ut, mattis ac nibh. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-
-                                    <img src="{{asset('images/reviews/beautiful-woman-face-portrait-brown-background.jpeg')}}" class="img-fluid reviews-image" alt="">
-
-                                    <figcaption class="ms-4">
-                                        <strong>Marie</strong>
-
-                                        <span class="text-muted">Patient</span>
-                                    </figcaption>
-                                </figure>
-
-                                <figure class="reviews-thumb d-flex flex-wrap align-items-center rounded">
-                                    <div class="reviews-stars">
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star"></i>
-                                    </div>
-
-                                    <p class="text-primary d-block mt-2 mb-0 w-100"><strong>Doctor cares everyone!</strong></p>
-
-                                    <p class="reviews-text w-100">Donec in elementum orci, nec posuere ligula. Quisque vulputate diam et ullamcorper ullamcorper. Pellentesque vestibulum neque at leo fermentum mattis.</p>
-
-                                    <img src="{{asset('images/reviews/senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg')}}" class="img-fluid reviews-image" alt="">
-
-                                    <figcaption class="ms-4">
-                                        <strong>Ben Walker</strong>
-
-                                        <span class="text-muted">Recovered</span>
-                                    </figcaption>
-                                </figure>
-
-                                <figure class="reviews-thumb d-flex flex-wrap align-items-center rounded">
-                                    <div class="reviews-stars">
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                    </div>
-
-                                    <p class="text-primary d-block mt-2 mb-0 w-100"><strong>Great services!</strong></p>
-
-                                    <p class="reviews-text w-100">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec sit amet velit vitae purus aliquam efficitur.</p>
-
-                                    <img src="{{asset('images/reviews/portrait-british-woman.jpeg')}}" class="img-fluid reviews-image" alt="">
-
-                                    <figcaption class="ms-4">
-                                        <strong>Laura Zono</strong>
-
-                                        <span class="text-muted">New Patient</span>
-                                    </figcaption>
-                                </figure>
-
-                                <figure class="reviews-thumb d-flex flex-wrap align-items-center rounded">
-                                    <div class="reviews-stars">
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star"></i>
-                                        <i class="bi-star"></i>
-                                    </div>
-
-                                    <p class="text-primary d-block mt-2 mb-0 w-100"><strong>Best Advices</strong></p>
-
-                                    <p class="reviews-text w-100">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                                    <img src="{{asset('images/reviews/woman-wearing-mask-face-closeup-covid-19-green-background.jpeg')}}" class="img-fluid reviews-image" alt="">
-
-                                    <figcaption class="ms-4">
-                                        <strong>Rosey</strong>
-
-                                        <span class="text-muted">Almost Recovered</span>
-                                    </figcaption>
-                                </figure>
-                               
-                            </div>
-                        </div>
-
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="img-fluid position-absolute w-100 h-100" src="{{ asset('img/about.jpg') }}" alt="" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                <h1 class="mb-4">Welcome to eLEARNING</h1>
+                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fas fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fas fa-arrow-right text-primary me-2"></i>Online Classes</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fas fa-arrow-right text-primary me-2"></i>International Certificate</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fas fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fas fa-arrow-right text-primary me-2"></i>Online Classes</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fas fa-arrow-right text-primary me-2"></i>International Certificate</p>
                     </div>
                 </div>
-            </section>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="#">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-            <section class="section-padding" id="booking">
-                <div class="container">
-                    <div class="row">
-                    
-                        <div class="col-lg-8 col-12 mx-auto">
-                            <div class="booking-form">
-                                
-                                <h2 class="text-center mb-lg-3 mb-2">Book an appointment</h2>
-                            
-                                <form role="form" action="#booking" method="post">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-12">
-                                            <input type="text" name="name" id="name" class="form-control" placeholder="Full name" required>
-                                        </div>
+    <!-- About End -->
 
-                                        <div class="col-lg-6 col-12">
-                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>
-                                        </div>
 
-                                        <div class="col-lg-6 col-12">
-                                            <input type="telephone" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" placeholder="Phone: 123-456-7890">
-                                        </div>
-
-                                        <div class="col-lg-6 col-12">
-                                            <input type="date" name="date" id="date" value="" class="form-control">
-                                            
-                                        </div>
-
-                                        <div class="col-12">
-                                            <textarea class="form-control" rows="5" id="message" name="message" placeholder="Additional Message"></textarea>
-                                        </div>
-
-                                        <div class="col-lg-3 col-md-4 col-6 mx-auto">
-                                            <button type="submit" class="form-control" id="submit-button">Book Now</button>
-                                        </div>
-                                    </div>
-                                </form>
-
+    <!-- Categories Start -->
+    <div class="container-xxl py-5 category">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
+            <h1 class="mb-5">Courses Categories</h1>
+        </div>
+        <div class="row g-3">
+            <div class="col-lg-7 col-md-6">
+                <div class="row g-3">
+                    <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                        <a class="position-relative d-block overflow-hidden" href="#">
+                            <img class="img-fluid" src="{{ asset('img/cat-1.jpg') }}" alt="">
+                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                <h5 class="m-0">Web Design</h5>
+                                <small class="text-primary">49 Courses</small>
                             </div>
-                        </div>
-
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                        <a class="position-relative d-block overflow-hidden" href="#">
+                            <img class="img-fluid" src="{{ asset('img/cat-2.jpg') }}" alt="">
+                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                <h5 class="m-0">Graphic Design</h5>
+                                <small class="text-primary">49 Courses</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                        <a class="position-relative d-block overflow-hidden" href="#">
+                            <img class="img-fluid" src="{{ asset('img/cat-3.jpg') }}" alt="">
+                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                <h5 class="m-0">Video Editing</h5>
+                                <small class="text-primary">49 Courses</small>
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                <a class="position-relative d-block h-100 overflow-hidden" href="#">
+                    <img class="img-fluid position-absolute w-100 h-100" src="{{ asset('img/cat-4.jpg') }}" alt="" style="object-fit: cover;">
+                    <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
+                        <h5 class="m-0">Online Marketing</h5>
+                        <small class="text-primary">49 Courses</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
-        </main>
+    <!-- Categories Start -->
 
-        {% block body %}
+
+    <!-- Courses Start -->
+    <div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+            <h1 class="mb-5">Popular Courses</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="course-item bg-light">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid" src="{{ asset('img/course-1.jpg') }}" alt="">
+                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4 pb-0">
+                        <h3 class="mb-0">$149.00</h3>
+                        <div class="mb-3">
+                            {% for _ in 1..5 %}
+                                <small class="fa fa-star text-primary"></small>
+                            {% endfor %}
+                            <small>(123)</small>
+                        </div>
+                        <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
+                    </div>
+                    <div class="d-flex border-top">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat the above structure for other courses -->
+        </div>
+    </div>
+</div>
+
+    <!-- Courses End -->
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Instructors</h6>
+            <h1 class="mb-5">Expert Instructors</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item bg-light">
+                    <div class="overflow-hidden">
+                        <img class="img-fluid" src="img/team-1.jpg" alt="Instructor 1">
+                    </div>
+                    <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                        <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                            <a class="btn btn-sm-square btn-primary mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-sm-square btn-primary mx-1" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-sm-square btn-primary mx-1" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4">
+                        <h5 class="mb-0">Instructor Name 1</h5>
+                        <small>Designation 1</small>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat the above code for other instructors -->
+        </div>
+    </div>
+</div>
+
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+                <h1 class="mb-5">Our Students Say!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
         
-        
-        {% endblock %}
 
-        <footer class="site-footer section-padding" id="contact">
-            <div class="container">
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Quick Link</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">FAQs & Help</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Gallery</h4>
+                    <div class="row g-2 pt-2">
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Newsletter</h4>
+                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
                 <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
 
-                    <div class="col-lg-5 me-auto col-12">
-                        <h5 class="mb-lg-4 mb-3">Opening Hours</h5>
-
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex">
-                                Sunday : Closed
-                            </li>
-
-                            <li class="list-group-item d-flex">
-                                Monday, Tuesday - Firday
-                                <span>8:00 AM - 3:30 PM</span>
-                            </li>
-
-                            <li class="list-group-item d-flex">
-                                Saturday
-                                <span>10:30 AM - 5:30 PM</span>
-                            </li>
-                        </ul>
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
                     </div>
-
-                    <div class="col-lg-2 col-md-6 col-12 my-4 my-lg-0">
-                        <h5 class="mb-lg-4 mb-3">Our Clinic</h5>
-
-                        <p><a href="mailto:hello@company.co">hello@company.co</a><p>
-
-                        <p>123 Digital Art Street, San Diego, CA 92123</p>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FQAs</a>
+                        </div>
                     </div>
-
-                    <div class="col-lg-3 col-md-6 col-12 ms-auto">
-                        <h5 class="mb-lg-4 mb-3">Socials</h5>
-
-                        <ul class="social-icon">
-                            <li><a href="#" class="social-icon-link bi-facebook"></a></li>
-
-                            <li><a href="#" class="social-icon-link bi-twitter"></a></li>
-
-                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
-
-                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-12 ms-auto mt-4 mt-lg-0">
-                        <p class="copyright-text">Copyright © Medic Care 2021 
-                        <br><br>Design: <a href="https://templatemo.com" target="_parent">TemplateMo</a></p>
-                    </div>
-
                 </div>
-            </section>
-        </footer>
-        {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="{{asset('https://code.jquery.com/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('lib/wow/wow.min.js')}}"></script>
+    <script src="{{asset('lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
+ <script src="{{asset('js/custom.js')}}"></script>
+    <!-- Template Javascript -->
+    <script src="{{asset('js/main.js')}}"></script>
    
-        <!-- JAVASCRIPT FILES -->
-        <script src="{{asset('js/jquery.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-        <script src="{{asset('js/scrollspy.min.js')}}"></script>
-        <script src="{{asset('js/custom.js')}}"></script>
-<!--
+</body>
 
-TemplateMo 566 Medic Care
-
-https://templatemo.com/tm-566-medic-care
-
--->
-{% endblock %}
-    </body>
 </html>

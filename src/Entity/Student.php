@@ -3,32 +3,47 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\Length;
-use App\Repository\StudentRepository;
-use Symfony\Component\Serializer\Annotation\Groups;
-use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: StudentRepository::class)]
+/**
+ * Student
+ *
+ * @ORM\Table(name="student", indexes={@ORM\Index(name="IDX_B723AF3340D5431D", columns={"idclass_id"})})
+ * @ORM\Entity
+ */
 class Student
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    #[Groups("students")]
-    private ?int $id = null;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
 
-    #[ORM\Column(length: 150)]
-    #[Assert\NotBlank(message: "Votre nom  contient   caractères.")]
-    #[Groups("students")]
-    private ?string $name = null;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=150, nullable=false)
+     */
+    private $name;
 
-    #[ORM\Column]
-    #[Assert\Email(message: 'The email {{ value }} is not a valid email.',)]
-    #[Groups("students")]
-    private ?int $moyenne = null;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="moyenne", type="integer", nullable=false)
+     */
+    private $moyenne;
 
-    #[ORM\ManyToOne(inversedBy: 'students')]
-    private ?Classroom $idclass = null;
+    /**
+     * @var \Classroom
+     *
+     * @ORM\ManyToOne(targetEntity="Classroom")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idclass_id", referencedColumnName="id")
+     * })
+     */
+    private $idclass;
 
     public function getId(): ?int
     {
@@ -70,8 +85,6 @@ class Student
 
         return $this;
     }
-    public function __toString()
-    {
-        return $this->getId();
-    }
+
+
 }

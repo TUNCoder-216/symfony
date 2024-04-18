@@ -1,0 +1,40 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}List of Users{% endblock %}
+{% block stylesheets %}
+   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+ 
+{% block content %}
+    <h1>List of Users</h1>
+    
+    <table>
+       
+        <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Type</th>
+                <th scope="col">Connected</th>
+                 <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.lastname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.type }}</td>
+                    <td>{{ user.connected ? 'Yes' : 'No' }}</td>
+                    <td>
+                     <a href="{{ path('user_update', {'id': user.id}) }}" class="btn btn-primary">Update</a> 
+                    <a href="{{ path('user_delete', {'id': user.id}) }}" class="btn btn-danger">Delete</a> </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+

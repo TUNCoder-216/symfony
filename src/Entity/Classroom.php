@@ -4,17 +4,28 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-use App\Repository\ClassroomRepository;
-
-#[ORM\Entity(repositoryClass: ClassroomRepository::class)]
+/**
+ * Classroom
+ *
+ * @ORM\Table(name="classroom")
+ * @ORM\Entity
+ */
 class Classroom
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
 
-    #[ORM\Column(length: 150)]
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=150, nullable=false)
+     */
     private $name;
 
     public function getId(): ?int
@@ -34,8 +45,5 @@ class Classroom
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->getName();
-    }
+
 }
