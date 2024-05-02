@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Question List{% endblock %}
+
+{% block body %}
+    <h1>Question List</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Questionid</th>
+                <th>Questiontext</th>
+                <th>Optiona</th>
+                <th>Optionb</th>
+                <th>Optionc</th>
+                <th>Correctoptionindex</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td>{{ question.questionid }}</td>
+                <td>{{ question.questiontext }}</td>
+                <td>{{ question.optiona }}</td>
+                <td>{{ question.optionb }}</td>
+                <td>{{ question.optionc }}</td>
+                <td>{{ question.correctoptionindex }}</td>
+                <td>
+                    <a href="{{ path('app_question_edit', {'questionid': question.questionid}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no question found found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_question_new') }}">Create new</a>
+{% endblock %}

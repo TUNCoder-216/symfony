@@ -1,0 +1,36 @@
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                                        <div class="billing-address-form">
+                                        <br>
+                                        <h3>quiz titre :</h3>
+                                        <br>
+                                                <p>
+                                                    {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+                                                    {{ form_errors(form.titre) }}
+                                                </p>
+                                        </div>
+                                        <br>
+                                        <h3>description :</h3>
+                                        <br>
+                                                <p>
+                                                    {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                                                    {{ form_errors(form.description) }}
+                                                </p>
+                                        </div>
+                                        <br>
+                                        <h3>Difficulte :</h3>
+                                        <br>
+                                                <p>
+                                                    {{ form_widget(form.difficulte, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                                                    {{ form_errors(form.difficulte) }}
+                                                </p>
+                                        </div>
+                                        <h3>Duration :</h3>
+                                        <br>
+                                                <p>
+                                                    {{ form_widget(form.durationmin, {'attr': {'class': 'form-control', 'required': 'required', 'type': 'number'}}) }}
+                                                    {{ form_errors(form.durationmin) }}
+                                                </p>
+                                        </div>
+                                        
+                                        <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,51 @@
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                                        <div class="billing-address-form">
+                                        <br>
+                                        <h3>question :</h3>
+                                        <br>
+                                                <p>
+                                                    {{ form_widget(form.questiontext, {'attr': {'class': 'form-control'}}) }}
+                                                    {{ form_errors(form.questiontext) }}
+                                                </p>
+                                        </div>
+                                        <br>
+                                        <h3>Option a :</h3>
+                                        <br>
+                                                <p>
+                                                    {{ form_widget(form.optiona, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                                                    {{ form_errors(form.optiona) }}
+                                                </p>
+                                        </div>
+                                        <br>
+                                        <h3>Option b :</h3>
+                                        <br>
+                                                <p>
+                                                    {{ form_widget(form.optionb, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                                                    {{ form_errors(form.optionb) }}
+                                                </p>
+                                        </div>
+                                        <br>
+                                        <h3>Option c :</h3>
+                                        <br>
+                                                <p>
+                                                    {{ form_widget(form.optionc, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                                                    {{ form_errors(form.optionc) }}
+                                                </p>
+                                        </div>
+                                        <h3>Answer index :</h3>
+                                        <br>
+                                                <p>
+                                                    {{ form_widget(form.correctoptionindex, {'attr': {'class': 'form-control', 'required': 'required', 'type': 'number'}}) }}
+                                                    {{ form_errors(form.correctoptionindex) }}
+                                                </p>
+                                        </div>
+
+                                        <h3>Quiz title :</h3>
+                                        <br>
+                                                <p>
+                                                    {{ form_widget(form.quiz, {'attr': {'class': 'form-control', 'required': 'required', 'type': 'number'}}) }}
+                                                </p>
+                                        </div>
+                                        
+                                        <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

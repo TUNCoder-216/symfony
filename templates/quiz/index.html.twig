@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block body %}
+<br>
+<br>
+    <h1>Listes des Quiz</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Quizid</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Difficulte</th>
+                <th>Durationmin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for quiz in quizzes %}
+            <tr>
+                <td>{{ quiz.quizid }}</td>
+                <td>{{ quiz.titre }}</td>
+                <td>{{ quiz.description }}</td>
+                <td>{{ quiz.difficulte }}</td>
+                <td>{{ quiz.durationmin }}</td>
+                <td>
+                    <a href="{{ path('app_question_new') }}">Add question</a>
+                    <a href="{{ path('app_quiz_edit', {'quizid': quiz.quizid}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">pas de quiz ajouter</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('app_quiz_new') }}">Create new Quiz</a>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
