@@ -1,0 +1,163 @@
+{% extends 'base2.html.twig' %}
+
+
+
+{% block body %}
+
+{{form_start(registrationForm,{'attr': {'novalidate': 'novalidate'}} )}}
+
+
+    <!-- Breadcrumb Section Start -->
+    <section class="breadscrumb-section pt-0">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadscrumb-contain">
+                        <h2>Sign In</h2>
+                        <nav>
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="index-2.html">
+                                        <i class="fa-solid fa-house"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active">Sign In</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- log in section start -->
+    <section class="log-in-section section-b-space">
+        <div class="container-fluid-lg w-100">
+            <div class="row">
+                <div class="col-xxl-6 col-xl-5 col-lg-6 d-lg-block d-none ms-auto">
+                    <div class="image-contain">
+                        <img src="{{asset('img/cat-3.jpg')}}" alt="" >
+                    </div>
+                </div>
+
+                <div class="col-xxl-4 col-xl-5 col-lg-6 col-sm-8 mx-auto">
+                    <div class="log-in-box">
+                        <div class="log-in-title">
+                            
+                            <h3>Create New Account</h3>
+                        </div>
+                        <div class="input-box">
+                            <form class="row g-4">
+                                
+                        {{ form_row(registrationForm.nom,{'attr':{'class':'form form-control', 'id':'fullname','placeholder':'Nom'}}) }}
+                        {{ form_row(registrationForm.prenom,{'attr':{'class':'form form-control','id':'fullname','placeholder':'Préom'}}) }}
+                        {{ form_row(registrationForm.nomSup,{'attr':{'class':'form form-control','id':'fullname','placeholder':'Superette'}} )}}
+                        {{ form_row(registrationForm.adresseSup,{'attr':{'class':'form form-control','id':'fullname','placeholder':'Adresse Superette'}})}} 
+                        {{ form_row(registrationForm.email,{'attr':{'class':'form form-control','id':'email','placeholder':'Email'}} )}}
+                        {{ form_row(registrationForm.tel ,{'attr':{'class':'form form-control','placeholder':'Téléphone'}})}}
+                        {{ form_row(registrationForm.plainPassword.first,{'attr':{'class':'form form-control','id':'password','placeholder':'Mot de passe'}}, {
+                            label: 'Password'
+                        }) }}
+                        {{ form_row(registrationForm.plainPassword.second,{'attr':{'class':'form form-control','id':'password','placeholder':'Confirmez le mot de passe'}}, {
+                            label: 'Confirm Password'
+                        }) }}
+                        {{ form_row(registrationForm.agreeTerms)}}
+                                <div class="col-12">
+                                    <button class="btn btn-animation w-100" type="submit">Sign Up</button>
+                                </div>
+
+                        <div class="other-log-in">
+                            <h6>or</h6>
+                        </div>
+
+                        <div class="log-in-button">
+                            <ul>
+
+
+
+
+
+
+
+
+
+
+                                <li>
+                                    <a href="https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&amp;flowEntry=ServiceLogin"
+                                        class="btn google-button w-100">
+                                        <img src="{{asset('imagesf/inner-page/google.png')}}" alt="" >
+                                        Sign up with Google
+                                    </a>
+                                </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <li>
+                                    <a href="/connect/facebook" class="btn google-button w-100">
+                                        <img src="{{asset('imagesf/inner-page/facebook.png')}}" 
+                                            alt=""> Sign up with Facebook
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="other-log-in">
+                            <h6></h6>
+                        </div>
+
+                        <div class="sign-up-box">
+                            <h4>Already have an account?</h4>
+                            <a href="{{path('app_login')}}">Log In</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-7 col-xl-6 col-lg-6"></div>
+            </div>
+        </div>
+    </section>
+    <!-- log in section end -->
+        {{ form_end(registrationForm) }}
+{% endblock %}

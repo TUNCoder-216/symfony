@@ -1,0 +1,29 @@
+{%extends 'baseAdmin.html.twig'%}
+{%block body%}
+<h1> Liste des Admins</h1>
+<table border="1">
+        <th> email</th>
+        <th> password</th>
+        <th> nom</th>
+        <th> prenom</th>
+        <th> telephone</th>
+        <th> image</th>
+
+    </tr>
+    {%  for a in  admin %}
+        <tr>
+            <td>   {{ a.emailAdmin }} </td>
+            <td>   {{ a.passwordAdmin }} </td>
+            <td>   {{ a.nomAdmin }} </td>
+            <td>   {{ a.prenomAdmin }} </td>
+            <td>   {{ a.telAdmin }} </td>
+            <td>
+                {% if a.imageAdmin %}
+                    <img src="{{ asset('/images/product/' ~ a.imageAdmin) }}" alt="Uploaded image">
+                {% endif %}
+            </td>
+
+        </tr>
+    {% endfor %}
+</table>
+{%endblock%}

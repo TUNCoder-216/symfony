@@ -1,0 +1,22 @@
+/* spacing */
+
+table {
+    table-layout: auto; /* Let the browser determine the width of columns */
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid purple;
+  }
+  
+  /* Set styles for all table headers */
+  th {
+    padding: 20px; /* Add padding to table headers */
+    background-color: #f0f0f0; /* Set background color for table headers */
+    border: 1px solid #ddd; /* Add border for table headers */
+  }
+  
+  /* Set styles for all table data cells */
+  td {
+    padding: 15px; /* Add padding to table data cells */
+    border: 1px solid #ddd; /* Add border for table data cells */
+  }
+  

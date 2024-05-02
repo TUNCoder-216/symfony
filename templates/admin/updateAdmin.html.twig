@@ -1,0 +1,72 @@
+{% extends 'baseAdmin.html.twig'%}
+{% block body%}
+{{form_start(f,{'attr': {'novalidate': 'novalidate'}} )}}
+            <!-- Page Sidebar Start -->
+            <div class="page-body">
+                <!-- New User start -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-sm-8 m-auto">
+                                    <div class="card">
+                                        <div class="card-body">
+                                           <div class="card-header-2">
+                                            <h5>Update User</h5>
+                                        </div>
+                                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                                <li class="nav-item" role="presentation">
+                                                    <button class="nav-link active" id="pills-home-tab"
+                                                        data-bs-toggle="pill" data-bs-target="#pills-home"
+                                                        type="button">Account</button>
+                                                </li>
+                                            </ul>
+
+                                            <div class="tab-content" id="pills-tabContent">
+                                                <div class="tab-pane  show active" id="pills-home" role="tabpanel">
+                                                    <form class="theme-form theme-form-2 mega-form" method="post">
+
+                                                        <div class="row">
+                                                            <div class="mb-4 row align-items-center">
+                                                                {{form_row(f.nomAdmin)}}
+                                                            </div>
+                                                            <div class="mb-4 row align-items-center">
+                                                                {{form_row(f.prenomAdmin)}}
+                                                            </div>
+
+                                                            <div class="mb-4 row align-items-center">
+                                                                {{form_row(f.emailAdmin)}}
+                                                            </div>
+
+                                                            <div class="mb-4 row align-items-center">
+                                                            {{form_row(f.passwordAdmin.first)}}
+                                                            </div>
+
+                                                            <div class="row align-items-center">
+                                                            {{form_row(f.passwordAdmin.second)}}
+                                                            </div>
+                                                            <div class="row align-items-center">
+                                                            {{form_row(f.telAdmin)}}
+                                                            </div>
+                                                            <div class="row align-items-center">
+                                                            <label  
+                                                                    class="col-lg-2 col-md-3 col-form-label form-label-title">Image</label>
+                                                                <div class="col-md-9 col-lg-10">
+                                                                   {{form_row(f.imageAdmin)}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{form_end(f)}}
+                <!-- New User End -->
+{%endblock%}
+                

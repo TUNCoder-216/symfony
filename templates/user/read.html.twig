@@ -1,0 +1,65 @@
+{%extends 'base.html.twig'%}
+{%block body%}
+            <!-- Container-fluid starts-->
+            <div class="page-body">
+                <!-- All User Table Start -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card card-table">
+                                    <div class="card-body">
+                                        <div class="title-header option-title">
+                                
+                                        </div>
+
+                                        <div class="table-responsive table-product">
+                                            <table class="table all-package theme-table" id="table_id">
+                                                <thead>
+                                                <h3> Liste des users</h3><br>
+                                                    <tr>
+                                                        <th> Nom</th>
+                                                         <th> Prenom</th>
+                                                         <th> Email</th>
+                                                         <th> Telephone</th>
+                                                         <th> Superette</th>
+                                                         <th> Adresse Superette</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+
+                                                
+
+    
+    
+
+{%  for u in  user %}
+        <tr>
+            <td>  {{ u.nom }}</td>
+            <td>   {{ u.prenom }} </td>
+            <td>   {{ u.email }} </td>
+            <td>   {{ u.tel }} </td>
+            <td>   {{ u.nomSup }} </td>
+            <td>   {{ u.adresseSup }} </td>
+            <td>
+                <a href="{{ path('user_delete', {id:u.id}) }}">Delete </a>
+
+            </td>
+        </tr>
+    {% endfor %}
+    
+
+                                               
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- All User Table Ends-->
+
+                {%endblock%}

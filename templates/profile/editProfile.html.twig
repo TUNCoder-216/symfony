@@ -1,0 +1,367 @@
+{%extends'base2.html.twig'%}
+{%block body%}
+    <!-- Breadcrumb Section Start -->
+    <section class="breadscrumb-section pt-0">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadscrumb-contain">
+                        <h2>User Dashboard</h2>
+                        <nav>
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="index-2.html">
+                                        <i class="fa-solid fa-house"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">User Dashboard</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- User Dashboard Section Start -->
+    <section class="user-dashboard-section section-b-space">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-xxl-3 col-lg-4">
+                    <div class="dashboard-left-sidebar">
+                        <div class="close-button d-flex d-lg-none">
+                            <button class="close-sidebar">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                        <div class="profile-box">
+                            <div class="cover-image">
+                                <img src="{{asset('imagesf/inner-page/cover-img.jpg')}}" class="img-fluid blur-up lazyloaded" alt="">
+                            </div>
+
+                            <div class="profile-contain">
+                                <div class="profile-image">
+                                    <div class="position-relative">
+                                        <img src="{{asset('imagesf/inner-page/user/1.jpg')}}" class="blur-up update_img lazyloaded" alt="">
+                                        <div class="cover-icon">
+                                            <i class="fa-solid fa-pen">
+                                                <input type="file" onchange="readURL(this,0)">
+                                            </i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="profile-name">
+                                    <h3>{{ app.user.prenom }} {{ app.user.nom }}</h3>
+                                    <h6 class="text-content">{{ app.user.email }}</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="nav nav-pills user-nav-pills" id="pills-tab" role="tablist">
+                            
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                    Profile</button>
+                            </li>
+
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xxl-9 col-lg-8">
+                    <button class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">Show
+                        Menu</button>
+                    <div class="dashboard-right-sidebar">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <div class="dashboard-profile">
+                                    <div class="title">
+                                        <h2>My Profile</h2>
+                                        <span class="title-leaf">
+                                            <svg class="icon-width bg-gray">
+                                                <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                                            </svg>
+                                        </span>
+                                    </div>
+
+                                    <div class="profile-detail dashboard-bg-box">
+                                        <div class="dashboard-title">
+                                            <h3>Profile Name</h3>
+                                        </div>
+                                        <div class="profile-name-detail">
+                                            <div class="d-sm-flex align-items-center d-block">
+                                                <h3>{{ app.user.nom }} {{ app.user.prenom }}</h3>
+                                                <div class="product-rating profile-rating">
+                                                    <ul class="rating">
+                                                        <li>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star fill"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        </li>
+                                                        <li>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star fill"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        </li>
+                                                        <li>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star fill"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        </li>
+                                                        <li>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        </li>
+                                                        <li>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <a href="{{path('profile_edit')}}" data-bs-toggle="modal" data-bs-target="#editProfile">Edit</a>
+                                        </div>
+
+                                        <div class="location-profile">
+                                            <ul>
+                                                <li>
+                                                    <div class="location-box">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                                        <h6>{{ app.user.adresseSup }}</h6>
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="location-box">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                                        <h6>{{ app.user.email }}</h6>
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="location-box">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-square"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                                                        <h6>{{ app.user.tel }}</h6>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="profile-about dashboard-bg-box">
+                                        <div class="row">
+                                            <div class="col-xxl-7">
+                                                <div class="dashboard-title mb-3">
+                                                    <h3>Profile About</h3>
+                                                </div>
+
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Nom :</td>
+                                                                <td>{{ app.user.nom }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Prénom :</td>
+                                                                <td>{{ app.user.prenom }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Phone Number :</td>
+                                                                <td>
+                                                                    {{ app.user.tel }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Address :</td>
+                                                                <td>{{ app.user.adresseSup }}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                                <div class="dashboard-title mb-3">
+                                                    <h3>Login Details</h3>
+                                                </div>
+
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Email :</td>
+                                                                <td>
+                                                                    <a href="{{path('profile_edit')}}">{{ app.user.email }}</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Password :</td>
+                                                                <td>
+                                                                    <a href="{{path('profile_edit')}}">●●●●●●</a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xxl-5">
+                                                <div class="profile-image">
+                                                    <img src="{{asset('imagesf/inner-page/dashboard-profile.png"')}}" class="img-fluid blur-up lazyloaded" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade show" id="pills-security" role="tabpanel" aria-labelledby="pills-security-tab">
+                                <div class="dashboard-privacy">
+                                    <div class="dashboard-bg-box">
+                                        <div class="dashboard-title mb-4">
+                                            <h3>Privacy</h3>
+                                        </div>
+
+                                        <div class="privacy-box">
+                                            <div class="d-flex align-items-start">
+                                                <h6>Allows others to see my profile</h6>
+                                                <div class="form-check form-switch switch-radio ms-auto">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="redio" aria-checked="false">
+                                                    <label class="form-check-label" for="redio"></label>
+                                                </div>
+                                            </div>
+
+                                            <p class="text-content">all peoples will be able to see my profile</p>
+                                        </div>
+
+                                        <div class="privacy-box">
+                                            <div class="d-flex align-items-start">
+                                                <h6>who has save this profile only that people see my profile</h6>
+                                                <div class="form-check form-switch switch-radio ms-auto">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="redio2" aria-checked="false">
+                                                    <label class="form-check-label" for="redio2"></label>
+                                                </div>
+                                            </div>
+
+                                            <p class="text-content">all peoples will not be able to see my profile</p>
+                                        </div>
+
+                                        <button class="btn theme-bg-color btn-md fw-bold mt-4 text-white">Save
+                                            Changes</button>
+                                    </div>
+
+                                    <div class="dashboard-bg-box mt-4">
+                                        <div class="dashboard-title mb-4">
+                                            <h3>Account settings</h3>
+                                        </div>
+
+                                        <div class="privacy-box">
+                                            <div class="d-flex align-items-start">
+                                                <h6>Deleting Your Account Will Permanently</h6>
+                                                <div class="form-check form-switch switch-radio ms-auto">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="redio3" aria-checked="false">
+                                                    <label class="form-check-label" for="redio3"></label>
+                                                </div>
+                                            </div>
+                                            <p class="text-content">Once your account is deleted, you will be logged out
+                                                and will be unable to log in back.</p>
+                                        </div>
+
+                                        <div class="privacy-box">
+                                            <div class="d-flex align-items-start">
+                                                <h6>Deleting Your Account Will Temporary</h6>
+                                                <div class="form-check form-switch switch-radio ms-auto">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="redio4" aria-checked="false">
+                                                    <label class="form-check-label" for="redio4"></label>
+                                                </div>
+                                            </div>
+
+                                            <p class="text-content">Once your account is deleted, you will be logged out
+                                                and you will be create new account</p>
+                                        </div>
+
+                                        <button class="btn theme-bg-color btn-md fw-bold mt-4 text-white">Delete My
+                                            Account</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- User Dashboard Section End -->
+
+    
+
+    
+
+    
+
+
+    <!-- Edit Profile Start -->
+    <div class="modal fade theme-modal" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Edit Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                {{ form_start(form) }}
+                <div class="modal-body">
+                    <div class="row g-4">
+                     <form>
+                        <div class="col-xxl-12">
+                           
+                                <div class="form-floating theme-form-floating">
+                                        {{ form_row(form.nom,{'attr': {'class': 'form-control'}}) }}
+
+                                </div>
+                        </div>
+                        <div class="col-xxl-12">
+                                <div class="form-floating theme-form-floating">
+                                        {{ form_row(form.prenom,{'attr': {'class': 'form-control'}}) }}
+
+                                </div>
+                        </div>
+
+                        <div class="col-xxl-6">
+                                <div class="form-floating theme-form-floating">
+                                        {{ form_row(form.email,{'attr': {'class': 'form-control', 'id':'email1'}}) }}
+
+                                </div>
+                        </div>
+
+                        <div class="col-xxl-6">
+                                <div class="form-floating theme-form-floating">
+                                    {{ form_row(form.tel,{'attr': {'class': 'form-control', 'name':'mobile','id':'mobile'}}) }}
+                                    
+                                </div>
+                        </div>
+
+                        <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    {{ form_row(form.nomSup,{'attr': {'class': 'form-control','id':'adresse1'}}) }}
+                                </div>
+                        </div>
+
+                        <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    {{ form_row(form.adresseSup,{'attr': {'class': 'form-control','id':'adresse2'}}) }}
+                                </div>
+                            
+                        </div>
+                    </form>
+                </div>
+                {{ form_row(form._token) }}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" data-bs-dismiss="modal" class="btn theme-bg-color btn-md fw-bold text-light">Save changes</button>
+                </div>
+            {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Edit Profile End -->
+{% endblock %}

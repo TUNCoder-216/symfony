@@ -1,0 +1,18 @@
+{# templates/user/edit.html.twig #}
+
+{% extends 'base2.html.twig' %}
+
+{% block body %}
+{{form_start(form,{'attr': {'novalidate': 'novalidate'}} )}}
+    <h1>Edit User Details</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.nom) }}
+    {{ form_row(form.prenom) }}
+    {{ form_row(form.email) }}
+    {{form_row(form.tel)}}
+    <button type="submit" class="btn">Edit</button>
+    {{ form_end(form) }}
+    
+{% endblock %}

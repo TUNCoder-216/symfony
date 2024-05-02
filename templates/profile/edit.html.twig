@@ -1,0 +1,21 @@
+{# templates/profile/edit.html.twig #}
+
+{% extends 'base2.html.twig' %}
+
+{% block body %}
+    <h1>Edit Profile</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.nom,{'attr': {'class': 'form-control'}}) }}
+    {{ form_row(form.prenom,{'attr': {'class': 'form-control'}}) }}
+    {# render other fields here #}
+    {{ form_row(form.email,{'attr': {'class': 'form-control'}}) }}
+    {{ form_row(form.tel,{'attr': {'class': 'form-control'}}) }}
+    {{ form_row(form.nomSup,{'attr': {'class': 'form-control'}}) }}
+    {{ form_row(form.adresseSup,{'attr': {'class': 'form-control'}}) }}
+    {{ form_row(form._token) }}
+    <button type="submit">Save</button>
+
+    {{ form_end(form) }}
+{% endblock %}
