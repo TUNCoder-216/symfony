@@ -1,10 +1,12 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+app_pdf_generate:
+    path: '/pdf/generate'
+    controller: 'App\Controller\GestionCoursController::generatePdf'
+app_cours:
+    path: /Courss
+    controller: App\Controller\GestionCoursController::coursPage
+    
 
-cours_route:
-    path: /courses
-    controller: App\Controller\CoursController::index
-bibliotheque_route:
-    path: /bibliotheque
-    controller: App\Controller\BibliothequeController::index
+

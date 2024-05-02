@@ -46,11 +46,11 @@
 
 
                     <li>
-                        <a href="{{ path('app_admin') }}"><i class="fa fa-desktop "></i>Dashboard</a>
+                       <a href="{{ path('app_user1') }}"><i class="fa fa-desktop "></i>Dashboard</a>
                        
                     </li>
                     <li>
-                        <a href="{{ path('bibliotheque_route') }}"><i class="fa fa-edit "></i> bibliotheque<span class="fa arrow"></span></a>
+                        <a href=""><i class="fa fa-edit "></i> bibliotheque<span class="fa arrow"></span></a>
                        
                     </li>
 
@@ -119,16 +119,18 @@
                     <div class="col-md-12">
                      
                              
-{% block title %}Bibliotheque index{% endblock %}
+
+
+
 
 {% block body %}
-    <h1>Bibliotheque index</h1>
-     <a href="{{ path('app_cours_index') }}">COURS </a>
-
+    
+<a href="{{ path('app_gestion_cours_index') }}">Liste des cours</a>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Numero_biblio</th>
                 <th>Nom</th>
                 <th>Specialite</th>
                 <th>Image</th>
@@ -138,30 +140,38 @@
         <tbody>
         {% for bibliotheque in bibliotheques %}
             <tr>
+          
                 <td>{{ bibliotheque.id }}</td>
+                <td>{{ bibliotheque.numeroBiblio }}</td>
                 <td>{{ bibliotheque.nom }}</td>
                 <td>{{ bibliotheque.specialite }}</td>
-                <td>{{ bibliotheque.image }}</td>
-                <td>
+                
+             <td>
+                        {% if bibliotheque.image %}
+                            <img src="{{ asset('uploads/images/' ~ bibliotheque.image) }}" alt="{{ bibliotheque.nom }}">
+                        {% else %}
+                            Aucune image disponible
+                        {% endif %}
+                    </td>
+                      <td>
                     <a href="{{ path('app_bibliotheque_show', {'id': bibliotheque.id}) }}">show</a>
                     <a href="{{ path('app_bibliotheque_edit', {'id': bibliotheque.id}) }}">edit</a>
                 </td>
+                    
+                
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
     <a href="{{ path('app_bibliotheque_new') }}">Create new</a>
-
-
-
-
-   
+    
 {% endblock %}
+
 
 
    </div>

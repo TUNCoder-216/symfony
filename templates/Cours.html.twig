@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>eLEARNING - eLearning HTML Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -21,14 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
 </head>
 
 
@@ -52,7 +52,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="{{ path('app_user') }}" class="nav-item nav-link">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="courses.html" class="nav-item nav-link active">Courses</a>
                 <div class="nav-item dropdown">
@@ -89,105 +89,109 @@
         </div>
     </div>
     <!-- Header End -->
+    
 
 
     <!-- Categories Start -->
     <div class="container-xxl py-5 category">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
-                <h1 class="mb-5">Courses Categories</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+                <h1 class="mb-5">Courses </h1>
             </div>
-            {% block title %}GestionCours {% endblock %}
+            
 
-{% block body %}
-    <h1>GestionCours idex</h1>
+
+
+   
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Numero_biblio</th>
+             
+            
                 <th>Titre</th>
                 <th>Pdf</th>
-                <th>Video</th>
                 <th>Nombre_pages</th>
-                <th>actions</th>
+                <th>Video</th>
+              
             </tr>
         </thead>
         <tbody>
         {% for gestion_cour in gestion_cours %}
             <tr>
-                <td>{{ gestion_cour.id }}</td>
-                <td>{{ gestion_cour.numeroBiblio }}</td>
+                
+                
                 <td>{{ gestion_cour.titre }}</td>
-                <td>{{ gestion_cour.pdf }}</td>
-                <td>{{ gestion_cour.video }}</td>
+                <td>
+                    {% if gestion_cour.pdf is not null %}
+                        <a href="{{ path('app_gestion_cours_pdf', {'id': gestion_cour.id}) }}" target="_blank">Voir PDF</a>
+                    {% else %}
+                        Pas de PDF
+                    {% endif %}
+                </td>
                 <td>{{ gestion_cour.nombrePages }}</td>
-                <td>
-                    <a href="{{ path('app_cours_show', {'id': gestion_cour.id}) }}">show</a>
-                    <a href="{{ path('app_cours_edit', {'id': gestion_cour.id}) }}">edit</a>
-                </td>
+                <td>{{ gestion_cour.video }}</td>
+               
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_cours_new') }}">Create new</a>
-{% endblock %}
-{% block title %}Bibliotheque index{% endblock %}
-
-{% block body %}
-    <h1>Bibliotheque index</h1>
-     <a href="{{ path('app_cours_index') }}">COURS </a>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Specialite</th>
-                <th>Image</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for bibliotheque in bibliotheques %}
-            <tr>
-                <td>{{ bibliotheque.id }}</td>
-                <td>{{ bibliotheque.nom }}</td>
-                <td>{{ bibliotheque.specialite }}</td>
-                <td>{{ bibliotheque.image }}</td>
-                <td>
-                    <a href="{{ path('app_bibliotheque_show', {'id': bibliotheque.id}) }}">show</a>
-                    <a href="{{ path('app_bibliotheque_edit', {'id': bibliotheque.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_bibliotheque_new') }}">Create new</a>
-
-
-
 
    
-{% endblock %}
 
 
 
         </div>
     </div>
+     <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+                <h1 class="mb-5">Courses </h1>
+            </div>
+             <div>
+             <a href="{{ path('app_pdf_generate') }}" class="btn btn-primary">Télécharger PDF</a>
+               
+            <a href="{{ path('bibliotheque_usage_statistics') }}" class="btn btn-primary"> stats</a>
+
+ </div>
+
+   
+  
+    
+   
+
+
     <!-- Categories Start -->
+    <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">ChatBotIA</h6>
+                <h1 class="mb-5">TO HELP YOU !!</h1>
+            </div>
+            
+
+<script>
+window.embeddedChatbotConfig = {
+chatbotId: "k1Gp2OMb5rHb6FnISKujF",
+domain: "www.chatbase.co"
+}
+</script>
+<script
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="k1Gp2OMb5rHb6FnISKujF"
+domain="www.chatbase.co"
+defer>
+</script>
+
+
+        </div>
+    </div>
 
 
     <!-- Courses Start -->
@@ -419,17 +423,16 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-
-    <!-- JavaScript Libraries -->
+  <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/wow/wow.min.js"></script>
-    <script src="../lib/easing/easing.min.js"></script>
-    <script src="../lib/waypoints/waypoints.min.js"></script>
-    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../../lib/wow/wow.min.js"></script>
+    <script src="../../lib/easing/easing.min.js"></script>
+    <script src="../../lib/waypoints/waypoints.min.js"></script>
+    <script src="../../lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des cours</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des cours</h1>
+    <table>
+        <thead>
+            <tr>
+              
+                
+                <th>Numero_biblio</th>
+                <th>Titre</th>
+             
+                <th>Nombre_pages</th>
+                
+            
+            </tr>
+        </thead>
+        <tbody>
+            {% for gestion_cour in gestion_cours %}
+                <tr>
+                   
+                <td>{{ gestion_cour.numeroBiblio }}</td>
+                <td>{{ gestion_cour.titre }}</td>
+                    <td>{{ gestion_cour.nombrePages }}</td>
+                    
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

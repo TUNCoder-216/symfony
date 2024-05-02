@@ -6,33 +6,37 @@ use App\Entity\GestionCours;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\FileType; 
+
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
+// Importez FileType
+use App\Entity\Bibliotheque;
 
 class GestionCoursType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('numero_biblio')
-            ->add('titre', TextType::class, [
-                'constraints' => [
-                    new NotBlank(),
-                    new Length(['min' => 3, 'max' => 255]),
-                ],
+        ->add('numero_biblio', EntityType::class, [
+            'class' => 'App\Entity\Bibliotheque',
+            'choice_label' => 'id', // Or any other property you want to display
+            'placeholder' => 'Select a Bibliotheque', // Optional placeholder
+        ])
+            ->add('titre')
+            ->add('importer_pdf', FileType::class, [
+                'label' => 'Importer un fichier PDF',
+                'mapped' => false,
+                'required' => false,
             ])
-            ->add('pdf')
-            ->add('video')
             ->add('nombre_pages')
-        ;
+            ->add('video', FileType::class, [
+                'label' => 'Importer une vidéo',
+                'mapped' => false,
+                'required' => false,
+            ]);
     }
+    
 
     public function configureOptions(OptionsResolver $resolver): void
     {

@@ -1,0 +1,29 @@
+
+<div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="text-align: center; margin-bottom: 20px;">Bibliotheque Statistics</h2>
+        <canvas id="bibliothequeChart"></canvas>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('bibliothequeChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ labels|raw }},
+                datasets: [{
+                    label: 'bibliotheque Usage',
+                    data: {{ data|raw }},
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>

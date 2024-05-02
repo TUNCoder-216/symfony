@@ -22,3 +22,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+parameters:
+    dossier_pdf: '%kernel.project_dir%/public/pdf'
+    # config/services.yaml
+# config/services.yaml
+    upload_directory: '%kernel.project_dir%/public/uploads/images'
+    parameters:
+    dossier_video: '%kernel.project_dir%/public/videos'
+

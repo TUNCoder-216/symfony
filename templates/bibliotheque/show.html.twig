@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,21 +46,12 @@
 
 
                     <li>
-                  <a href="{{ path('app_admin') }}"><i class="fa fa-desktop "></i>Dashboard</a>
+                        <a href=""><i class="fa fa-desktop "></i>Dashboard</a>
+                       
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-edit "></i>UI Elements<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Notifications</a>
-                            </li>
-                            <li>
-                                <a href="#">Elements</a>
-                            </li>
-                            <li>
-                                <a href="#">Free Link</a>
-                            </li>
-                        </ul>
+                        <a href=""><i class="fa fa-edit "></i> bibliotheque<span class="fa arrow"></span></a>
+                       
                     </li>
 
                     <li>
@@ -143,6 +133,10 @@
                 <td>{{ bibliotheque.id }}</td>
             </tr>
             <tr>
+                <th>Numero_biblio</th>
+                <td>{{ bibliotheque.numeroBiblio }}</td>
+            </tr>
+            <tr>
                 <th>Nom</th>
                 <td>{{ bibliotheque.nom }}</td>
             </tr>
@@ -150,10 +144,15 @@
                 <th>Specialite</th>
                 <td>{{ bibliotheque.specialite }}</td>
             </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ bibliotheque.image }}</td>
-            </tr>
+           <th>Image</th>
+    <td>
+        {% if bibliotheque.image %}
+            <img src="{{ asset('uploads/images/' ~ bibliotheque.image) }}" alt="{{ bibliotheque.nom }}">
+        {% else %}
+            Aucune image disponible
+        {% endif %}
+    </td>
+
         </tbody>
     </table>
 
@@ -162,8 +161,12 @@
     <a href="{{ path('app_bibliotheque_edit', {'id': bibliotheque.id}) }}">edit</a>
 
     {{ include('bibliotheque/_delete_form.html.twig') }}
-{% endblock %}  
- </div>
+{% endblock %}
+
+
+
+
+   </div>
                 </div>  
 
 

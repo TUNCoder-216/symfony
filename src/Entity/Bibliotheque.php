@@ -3,13 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\BibliothequeRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\UX\Turbo\Attribute\Broadcast;
 
 #[ORM\Entity(repositoryClass: BibliothequeRepository::class)]
-#[Broadcast]
 class Bibliotheque
 {
     #[ORM\Id]
@@ -17,8 +13,8 @@ class Bibliotheque
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\OneToMany(mappedBy: 'fk_numero', targetEntity: GestionCours::class, orphanRemoval: true)]
-    private Collection $numero_biblio;
+    #[ORM\Column]
+    private ?int $numero_biblio = null;
 
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
@@ -29,42 +25,19 @@ class Bibliotheque
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    public function __construct()
-    {
-        $this->numero_biblio = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return Collection<int, GestionCours>
-     */
-    public function getNumeroBiblio(): Collection
+    public function getNumeroBiblio(): ?int
     {
         return $this->numero_biblio;
     }
 
-    public function addNumeroBiblio(GestionCours $numeroBiblio): static
+    public function setNumeroBiblio(int $numero_biblio): static
     {
-        if (!$this->numero_biblio->contains($numeroBiblio)) {
-            $this->numero_biblio->add($numeroBiblio);
-            $numeroBiblio->setFkNumero($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNumeroBiblio(GestionCours $numeroBiblio): static
-    {
-        if ($this->numero_biblio->removeElement($numeroBiblio)) {
-            // set the owning side to null (unless already changed)
-            if ($numeroBiblio->getFkNumero() === $this) {
-                $numeroBiblio->setFkNumero(null);
-            }
-        }
+        $this->numero_biblio = $numero_biblio;
 
         return $this;
     }
@@ -104,4 +77,8 @@ class Bibliotheque
 
         return $this;
     }
+    public function __toString(): string
+{
+    return $this->numero_biblio ?? 'Untitled Bibliotheque';
+}
 }
