@@ -1,0 +1,28 @@
+{% if results %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Contenu Solution</th>
+                <th>Nom Admin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for solution in results %}
+                <tr>
+                    <td>{{ solution.id }}</td>
+                    <td>{{ solution.contenusolution }}</td>
+                    <td>{{ solution.nomadmin }}</td>
+                    <td>
+                        <a href="{{ path('app_solution_show', {'id': solution.id}) }}">Show</a>
+                        <a href="{{ path('app_solution_edit', {'id': solution.id}) }}">Edit</a>
+                        <!-- Add more actions if needed -->
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No results found.</p>
+{% endif %}

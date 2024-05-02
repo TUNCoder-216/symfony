@@ -1,0 +1,6 @@
+chien
+chat
+php bin/console messenger:consume async
+
+
+mdp email symfoy : jkhe fucw rltz vfxa

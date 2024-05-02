@@ -15,6 +15,13 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
+    #[Route('/back', name: 'app_user1')]
+    public function indexadmin(): Response
+    {
+        return $this->render('user/indexadmin.html.twig', [
+            'controller_name' => 'UserController',
+        ]);
+    }
 }
 
 
